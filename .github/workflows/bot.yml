@@ -34,6 +34,7 @@ jobs:
            expect \"Password\"        
            send \"${{ secrets.GHPASS }}\r\"
            set timeout -1
+           catch wait result
            interact"
        - name: compilation
          run: |
