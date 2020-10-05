@@ -25,7 +25,7 @@ jobs:
        - name: cloning repo
          run: |
            mkdir bot
-           git clone $REPO bot
+           git clone ${{ secrets.REPO }} bot
        - name: compilation
          run: |
            cd bot
