@@ -13,9 +13,7 @@ on:
   watch:
     types: [started]
     
-env:
-  REPO: null
- 
+
 jobs:
   build:
     runs-on: ubuntu-latest
