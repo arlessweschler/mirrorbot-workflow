@@ -21,11 +21,20 @@ jobs:
     steps:
        - name: Checkout
          uses: actions/checkout@main
-       
+
+       - name: initialization
+         run: |
+            sudo apt install expect -y
        - name: cloning repo
          run: |
            mkdir bot
-           git clone ${{ secrets.REPO }} bot
+           expect -c " 
+           spawn git clone ${{ secrets.REPO }} bot
+           expect \"Username\"        
+           send \"${{ secrets.GHUSER }}\r\"
+           expect \"Password\"        
+           send \"${{ secrets.GHPASS }}\r\"
+           interact"
        - name: compilation
          run: |
            cd bot
