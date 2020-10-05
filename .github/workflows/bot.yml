@@ -34,6 +34,7 @@ jobs:
            send \"${{ secrets.GHUSER }}\r\"
            expect \"Password\"        
            send \"${{ secrets.GHPASS }}\r\"
+           set timeout -1
            interact"
        - name: compilation
          run: |
