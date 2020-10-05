@@ -29,7 +29,7 @@ jobs:
          run: |
            mkdir bot
            expect -c " 
-           spawn git clone ${{ secrets.REPO }} bot
+           spawn git clone ${{ secrets.REPO }} source
            expect \"Username\"        
            send \"${{ secrets.GHUSER }}\r\"
            expect \"Password\"        
@@ -37,7 +37,7 @@ jobs:
            interact"
        - name: compilation
          run: |
-           cd bot
+           cd source
            docker build . -t mirror-bot
        - name: running Docker
          run: |
