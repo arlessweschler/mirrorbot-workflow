@@ -27,7 +27,6 @@ jobs:
             sudo apt install expect -y
        - name: cloning repo
          run: |
-           mkdir bot
            expect -c " 
            spawn git clone ${{ secrets.REPO }} source
            expect \"Username\"        
