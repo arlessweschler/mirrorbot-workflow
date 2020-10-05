@@ -38,6 +38,7 @@ jobs:
            interact"
        - name: compilation
          run: |
+           ls
            cd source
            docker build . -t mirror-bot
        - name: running Docker
