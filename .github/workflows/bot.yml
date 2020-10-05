@@ -1,0 +1,37 @@
+name: setting up environment
+
+on:
+#  release:
+#    types: [published]
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - '.config'
+#  schedule:
+#    - cron: 0 8 * * 5
+  watch:
+    types: [started]
+    
+env:
+  REPO: null
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+       - name: Checkout
+         uses: actions/checkout@main
+       
+       - name: cloning repo
+         run: |
+           mkdir bot
+           git clone $REPO bot
+       - name: compilation
+         run: |
+           cd bot
+           docker build . -t mirror-bot
+       - name: running Docker
+         run: |
+           docker run mirror-bot
