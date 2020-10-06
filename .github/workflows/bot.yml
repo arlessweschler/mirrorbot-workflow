@@ -24,7 +24,6 @@ jobs:
 
        - name: initialization
          run: |
-           docker rmi `docker images -q`
            sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
            sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
            sudo -E apt-get update
@@ -46,8 +45,8 @@ jobs:
          run: |
            ls
            cd source
-           sudo docker container prune --force
-           sudo docker build . -t mirror-bot
+           docker container prune --force
+           docker build . -t mirror-bot
        - name: running Docker
          run: |
-           sudo docker run mirror-bot
+           docker run mirror-bot
