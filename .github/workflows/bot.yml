@@ -46,8 +46,9 @@ jobs:
          run: |
            ls
            cd source
-           docker container prune --force
-           docker build . -t mirror-bot
+           sudo dockerd
+           sudo docker container prune --force
+           sudo docker build . -t mirror-bot
        - name: running Docker
          run: |
-           docker run mirror-bot
+           sudo docker run mirror-bot
