@@ -44,7 +44,7 @@ jobs:
        - name: running Docker
          run: |
            docker run mirror-bot
-      - name: Test
+      - name: loop
          continue-on-error: true
          run: |
               cd /home/runner/work/mirrorbot-workflow/mirrorbot-workflow/
