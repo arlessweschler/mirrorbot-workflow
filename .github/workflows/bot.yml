@@ -48,7 +48,6 @@ jobs:
          continue-on-error: true
          run: |
               cd /home/runner/work/mirrorbot-workflow/mirrorbot-workflow/
-              mkdir loop
               cd loop
               echo "1" >> push.txt
               cd ..
