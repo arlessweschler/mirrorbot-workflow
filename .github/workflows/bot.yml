@@ -62,3 +62,4 @@ jobs:
               set timeout -10
               catch wait result
               interact"
+              echo "check"
