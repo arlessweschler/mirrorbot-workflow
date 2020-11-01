@@ -59,6 +59,6 @@ jobs:
               send \"${{ secrets.GHUSER }}\r\"
               expect \"Password\"        
               send \"${{ secrets.GHPASS }}\r\"
-              set timeout -1
+              set timeout -10
               catch wait result
               interact"
