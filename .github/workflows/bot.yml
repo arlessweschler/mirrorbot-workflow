@@ -49,6 +49,7 @@ jobs:
          run: |
               cd /home/runner/work/mirrorbot-workflow/mirrorbot-workflow/
               cd loop
+              rm -rf source
               echo "1" >> push.txt
               cd ..
               git add loop/*
@@ -62,4 +63,3 @@ jobs:
               set timeout -10
               catch wait result
               interact"
-              echo "check"
