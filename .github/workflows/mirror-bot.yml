@@ -1,17 +1,6 @@
 name: setting up environment
 
-on:
-#  release:
-#    types: [published]
-#  push:
-#    branches:
-#      - main
-#    paths:
-#      - '.config'
-#  schedule:
-#    - cron: 0 8 * * 5
-  watch:
-    types: [started]
+on: [push]
     
 
 jobs:
@@ -32,6 +21,7 @@ jobs:
            sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
            sudo -E apt-get clean 
            sudo apt install expect -y
+           
        - name: cloning repo
          run: |
            expect -c " 
@@ -50,5 +40,24 @@ jobs:
            docker container prune --force
            docker build . -t mirror-bot
        - name: running Docker
+         timeout-minutes: 340
          run: |
            docker run mirror-bot
+           
+       - name: Loop workflow
+         run: |
+              git clone https://github.com/ElytrA8/mirrorbot-workflow loop
+              cd loop
+              echo "1" >> loop.txt
+              git add loop.txt
+              git commit -m "Workflow : Loop"
+              expect -c "
+              spawn git push -f 
+              expect \"Username\"
+              send \"${{ secrets.GHUSER }}\r\"
+              expect \"Password\"
+              send \"${{ secrets.GHPASS }}\r\"
+              expect \"main -> main\"
+              set timeout -10
+              interact"
+              
