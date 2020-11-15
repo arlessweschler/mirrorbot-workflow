@@ -11,7 +11,7 @@ Setup secrets in settings --> Secrets
 ```
 GHUSER :- github username
 GHPASS :- github password
-REPOM :- link of your private mirror not repository
+REPOM :- link of your private mirror bot repository
 ```
 then go .github/workflows/*.yml
 
