@@ -2,7 +2,8 @@ name: setting up environment
 
 on: [push]
     
-
+env:
+ username: ElytrA8
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,7 +52,7 @@ jobs:
        - name: Loop workflow
          continue-on-error: true
          run: |
-              git clone https://github.com/ElytrA8/mirrorbot-workflow loop
+              git clone https://github.com/$username/mirrorbot-workflow loop
               cd loop
               echo "1" >> loop.txt
               git add loop.txt
