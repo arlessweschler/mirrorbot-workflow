@@ -22,7 +22,7 @@ jobs:
            git config --global user.email "manofuranium@gmail.com"         
            sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
            sudo -E apt-get clean 
-           sudo apt install expect -y
+           sudo apt install -y expect
            
        - name: cloning repo
          continue-on-error: true
