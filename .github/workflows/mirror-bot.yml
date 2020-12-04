@@ -6,7 +6,7 @@ env:
  username: Area69Lab
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
        - name: Checkout
@@ -21,6 +21,7 @@ jobs:
            git config --global user.name "ElytrA8"
            git config --global user.email "manofuranium@gmail.com"         
            sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* 
+           sudo -E apt-get clean 
            sudo apt install -y expect
            
        - name: cloning repo
